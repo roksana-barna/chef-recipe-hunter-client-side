@@ -6,9 +6,9 @@ import { FaGlassMartiniAlt,FaChair,FaCreativeCommonsNd,FaBoxOpen} from 'react-ic
 
 const Footer = () => {
     return (
-        <Container className='bg-dark'>
+        <Container className='bg-dark mt-5'>
             <div>
-                <h2 className='text-danger text-center p-2'>KoOkiliCiouS</h2>
+                <h2 className='text-warning text-center p-2'>KoOkiliCiouS</h2>
                 <p className='text-white text-center'>Serves you a marvelous Refreshment.</p>
                 <div className='text-white'>
                     <h5 className='text-center text-white-50'>What we Offer</h5>
@@ -39,7 +39,7 @@ const Footer = () => {
 
                     </div>
                     <div className="footer-text">
-          <p className='text-center text-danger'>© 2023 Japanese Recipe. All rights reserved.</p>
+          <p className='text-center text-warning'>© 2023 Japanese Recipe. All rights reserved.</p>
         </div>
 
                 </div>
