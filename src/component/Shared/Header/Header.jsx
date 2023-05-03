@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Header = () => {
-    
+
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
@@ -32,20 +32,33 @@ const Header = () => {
                                 <Link className='me-3 text-decoration-none text-dark' to="/contact">Contact</Link>
                                 <Link className='me-3 text-decoration-none text-dark' to="/blog">Blog</Link>
                             </Nav>
-                            <Nav>
-                                {user &&
-                                    <img className='w-25 rounded-circle me-2' src={user.photoURL} alt="" /> 
-                                }
 
-                                {
-                                    user ? <Link to='/login'><Button onClick={handleLogOut} variant="danger" >LogOut</Button></Link> :
-                                        <Link to='/login'><Button variant="danger">Log In</Button></Link>
-                                }
-
-
-                            </Nav>
                         </Navbar.Collapse>
+
                     </Container>
+                    <Nav>
+                    {
+                            user ? <Link to='/login'><Button onClick={handleLogOut} variant="danger" >LogOut</Button></Link> :
+                                <Link to='/login'><Button variant="danger">LogIn</Button></Link>
+                        }
+                        {user &&
+                            <div className='ms-2'>
+                                <OverlayTrigger
+                                placement='bottom'
+                                 overlay={<Tooltip>{user.displayName}</Tooltip>}>
+                                <img  className='w-25 rounded-circle  text-right me-0' src={user.photoURL} alt="" />
+
+                                </OverlayTrigger>
+                             
+                            </div>
+
+
+                        }
+
+                       
+
+
+                    </Nav>
                 </Navbar>
 
 

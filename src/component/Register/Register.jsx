@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../Firebase/FirebaseConfig';
+const auth =getAuth(app)
 
 const Register = () => {
   const {createUser}=useContext(AuthContext)
@@ -16,11 +19,26 @@ const Register = () => {
         createUser(email,password)
         .then(result =>{
           const createdUser=result.user;
+          updateUserData(result.user,name,photoURL);
           console.log(createdUser);
           form.reset();
     })
     .catch(error =>{
       console.log(error)
+    })
+  }
+  // 
+  
+  const updateUserData =(user,name,photoURL)=>{
+    updateProfile(user,{
+      displayName : name,
+      photoURL:photoURL
+    })
+    .then(()=>{
+      console.log('updated')
+    })
+    .catch(error =>{
+      console.log(error.message)
     })
   }
     return (

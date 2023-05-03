@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../Firebase/FirebaseConfig';
@@ -13,6 +13,7 @@ const Login = () => {
   const provider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const { signIn } = useContext(AuthContext);
+  const navigate =useNavigate()
   const handleLogin = (event) => {
     event.preventDefault();
     setSuccess('')
@@ -42,6 +43,7 @@ const Login = () => {
         const loggedUser = result.user;
 
         console.log(loggedUser);
+        navigate('/')
         setError('');
         form.reset();
         setSuccess('user has created successfully')
@@ -92,7 +94,7 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+       <Button variant="primary" type="submit">
           Login
         </Button>
         <br />

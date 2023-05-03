@@ -1,13 +1,16 @@
 import React from 'react';
 import Banner from '../banner/Banner';
+import { Container } from 'react-bootstrap';
+import Cards from '../Cards/Cards';
 
 const Home = () => {
     return (
-        <div>
-            <h2>home</h2>
+        <Container>
             <Banner></Banner>
+             <Cards></Cards>
+
             
-        </div>
+        </Container>
     );
 };
 
