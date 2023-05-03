@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Header = () => {
+    
     const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
         logOut()
             .then(result => { })
             .catch(error => console.error(error));
     }
+
+
     return (
         <div>
             <Container>
@@ -31,7 +34,7 @@ const Header = () => {
                             </Nav>
                             <Nav>
                                 {user &&
-                                    <img className='w-25 rounded-circle' src={user.photoURL} alt="" /> 
+                                    <img className='w-25 rounded-circle me-2' src={user.photoURL} alt="" /> 
                                 }
 
                                 {
