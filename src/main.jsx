@@ -22,36 +22,36 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
-    {
-      path: "/",
-      element:<Home></Home>,
-    },
-    {
-      path:'/login',
-      element:<Login></Login>
-    },
-    {
-      path:'/register',
-      element:<Register></Register>
-    },
-    {
-      path:'/chefdetails/:chefId',
-      element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
-      // loader:({params})=>fetch(`http://localhost:5000/chefdetails/${params.chefId}`)
-    },
-    
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      },
+      {
+        path: '/chefdetails/:chefId',
+        element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
+
+      },
+
     ]
-    },
-    {
-      path:'*',
-      element:<NotFound></NotFound>
-    },
-  
+  },
+  {
+    path: '*',
+    element: <NotFound></NotFound>
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <AuthProvider> <RouterProvider router={router} /></AuthProvider>
+    <AuthProvider> <RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

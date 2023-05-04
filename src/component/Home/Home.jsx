@@ -12,7 +12,6 @@ const Home = () => {
              <Cards></Cards>
              <Carocel></Carocel>
              <HomaPage1></HomaPage1>
-
             
         </Container>
     );

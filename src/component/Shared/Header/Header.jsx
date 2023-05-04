@@ -13,7 +13,6 @@ const Header = () => {
             .catch(error => console.error(error));
     }
 
-
     return (
         <div>
             <Container>
@@ -38,26 +37,21 @@ const Header = () => {
 
                     </Container>
                     <Nav>
-                    {
+                        {
                             user ? <Link to='/login'><Button onClick={handleLogOut} variant="danger" >LogOut</Button></Link> :
                                 <Link to='/login'><Button variant="danger">LogIn</Button></Link>
                         }
                         {user &&
                             <div className='ms-2'>
                                 <OverlayTrigger
-                                placement='bottom'
-                                 overlay={<Tooltip>{user.displayName}</Tooltip>}>
-                                <img  className='w-25 rounded-circle  text-right me-0' src={user.photoURL} alt="" />
+                                    placement='bottom'
+                                    overlay={<Tooltip>{user.displayName}</Tooltip>}>
+                                    <img className='w-25 rounded-circle  text-right me-0' src={user.photoURL} alt="" />
 
                                 </OverlayTrigger>
-                             
+
                             </div>
-
-
                         }
-
-                       
-
 
                     </Nav>
                 </Navbar>

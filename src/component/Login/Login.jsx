@@ -8,29 +8,29 @@ const auth = getAuth(app);
 
 
 const Login = () => {
-  const location =useLocation();
-   const from=location?.state?.from?.pathname || '/' ;
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/';
   const [error, setError] = useState('')
   const [succes, setSuccess] = useState('')
   const provider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const { signIn } = useContext(AuthContext);
-  const navigate =useNavigate()
+  const navigate = useNavigate()
   const handleLogin = (event) => {
     event.preventDefault();
     setSuccess('')
     setError('');
 
-    const form = event.target; 
+    const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    
-     if(password.length <6){
+
+    if (password.length < 6) {
       setError('password mustbe a 6 character or longer')
       return;
     }
-    else if (!email || !password){
+    else if (!email || !password) {
       setError('Please enter your email.');
       return;
     }
@@ -38,12 +38,12 @@ const Login = () => {
       setError('email password not matched')
       return;
     }
-    
+
     setSuccess('');
     signIn(email, password)
       .then(result => {
         const loggedUser = result.user;
-        navigate(from,{replace:true});
+        navigate(from, { replace: true });
 
         console.log(loggedUser);
         navigate('/')
@@ -92,12 +92,12 @@ const Login = () => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" name="password" placeholder="Password"/>
+          <Form.Control type="password" name="password" placeholder="Password" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-       <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit">
           Login
         </Button>
         <br />
@@ -109,9 +109,6 @@ const Login = () => {
       <p className='text-success'>{succes}</p>
       <Button onClick={handleGoogleSignIn} variant="info mt-5">Sign In With Google</Button>
       <Button onClick={handleGithubSignIn} variant="info mt-5 ms-2">Sign In With Github</Button>
-
-
-
     </Container>
   );
 };
