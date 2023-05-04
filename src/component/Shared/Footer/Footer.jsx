@@ -26,7 +26,7 @@ const Footer = () => {
                         <div>
                             <h2><FaCreativeCommonsNd/></h2>
                             <h5  className='text-warning'>Gift Cards</h5>
-                            <p className='text-white-50'>Our gift card system makes the whole journey of creating, selling and redeeming.
+                            <p className='text-white-50'>Our gift card system makes the whole journey of selling and redeeming.
 
                                 .</p>
                         </div>

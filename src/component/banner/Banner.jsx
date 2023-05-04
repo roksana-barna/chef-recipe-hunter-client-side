@@ -6,7 +6,7 @@ const Banner = () => {
     return (
         <Container>
              <div className='d-flex'>
-                    <div>
+                    <div className='pt-5'>
                         <h1 className='mt-5 fs-1 text-capitalize'><span className=' text-dark'>Choose</span><br /><span className='text-danger'>From</span><br /><span className=' text-dark'>Thousands of <span className=' text-warning'>Reciepes</span></span></h1>
                         <Button className='mt-5' variant="outline-primary">Get free Trial</Button>
                         <Button className='mt-5' variant="outline-secondary">Gift Card...</Button>
