@@ -1,15 +1,17 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaThumbsUp} from "react-icons/fa";
+import Recipe from '../Recipe/Recipe';
 
 const DetailsAll = ({details} ) => {
-    const { name, picture, experience, numRecipes, likes, bio} = details;
+    const { name, picture, experience, numRecipes, likes, bio,recipes} = details;
     console.log(details)
     return (
         <Container className='d-flex'>
             <div>
               
-                <Card style={{ width: '30rem' }}>
+                {/* <Card style={{ width: '40rem' }}> */}
+                <Card>
                     <Card.Img variant="top" src={picture} />
                     <Card.Body>
                         <Card.Title><span className='text-danger'>Chef Name:</span>Card Title{name}</Card.Title>
@@ -22,37 +24,28 @@ const DetailsAll = ({details} ) => {
                         </div>
                        
                         <p className='text-primary'> Experience:{experience}</p>
-        
+                      
 
                     </Card.Body>
                 </Card>
                 
             </div>
-             <div>
+
+            <div>
+              <h2 className='text-center text-danger'>Famous Recipes</h2>
+            {
+              recipes?.map(recipe=><Recipe 
+                key={recipe.id}
+                recipe={recipe}
+              ></Recipe>
                
-          
-<Row xs={1} md={2} className="g-4">
-      
-        <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      
-    </Row> 
+                )
+            }
+    
+            </div>
+           
+          <div>     
 </div>
-
-
-
-
         </Container>
     );
 };
