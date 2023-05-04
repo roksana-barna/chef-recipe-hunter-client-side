@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaThumbsUp } from "react-icons/fa";
 import Recipe from '../Recipe/Recipe';
+import LazyLoad from 'react-lazy-load';
 
 const DetailsAll = ({ details }) => {
   const { name, picture, experience, numRecipes, likes, bio, recipes } = details;
@@ -10,7 +11,9 @@ const DetailsAll = ({ details }) => {
     <Container className='d-flex'>
       <div>
         <Card>
+        <LazyLoad height={762}>
           <Card.Img variant="top" src={picture} />
+          </LazyLoad>
           <Card.Body>
             <Card.Title><span className='text-danger'>Chef Name:</span>Card Title{name}</Card.Title>
             <Card.Text>

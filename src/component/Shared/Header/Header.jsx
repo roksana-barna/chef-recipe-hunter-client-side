@@ -28,7 +28,6 @@ const Header = () => {
                             <Nav className="mx-auto">
 
                                 <ActiveLink className='me-3  ms-5 text-decoration-none text-danger' to="/">Home</ActiveLink>
-                                <Link className='me-3 text-decoration-none text-dark' to="/reciepe">Reciepe</Link>
                                 <Link className='me-3 text-decoration-none text-dark' to="/contact">Contact</Link>
                                 <Link className='me-3 text-decoration-none text-dark' to="/blog">Blog</Link>
                             </Nav>

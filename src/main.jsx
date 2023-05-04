@@ -18,6 +18,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ChefDetails from './component/ChefDetails/ChefDetails.jsx';
 import NotFound from './component/404/NotFound.jsx';
 import PrivateRoute from './component/PrivateRoute/PrivateRoute.jsx';
+import Blog from './component/Blog/Blog.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: '/chefdetails/:chefId',
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
+
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
 
       },
 
