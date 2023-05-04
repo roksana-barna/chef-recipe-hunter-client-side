@@ -12,7 +12,7 @@ const Cards = () => {
     },[])
     return (
         <Container>
-            <h2 className='text-center text-warning p-5'>Our Chefs</h2>  
+            <h2 className='text-center text-danger p-5'>Our Chefs</h2>  
            <div>
             <Row>
            
