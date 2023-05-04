@@ -31,7 +31,7 @@ const DetailsAll = ({details} ) => {
                 
             </div>
 
-            <div>
+            <div className=''>
               <h2 className='text-center text-danger'>Famous Recipes</h2>
             {
               recipes?.map(recipe=><Recipe 

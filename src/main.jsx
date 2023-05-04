@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +17,7 @@ import Register from './component/Register/Register.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import ChefDetails from './component/ChefDetails/ChefDetails.jsx';
 import NotFound from './component/404/NotFound.jsx';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,7 +37,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/chefdetails/:chefId',
-      element:<ChefDetails></ChefDetails>,
+      element:<PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>
       // loader:({params})=>fetch(`http://localhost:5000/chefdetails/${params.chefId}`)
     },
     

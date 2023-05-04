@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from '../../Firebase/FirebaseConfig';
@@ -8,6 +8,8 @@ const auth = getAuth(app);
 
 
 const Login = () => {
+  const location =useLocation();
+   const from=location?.state?.from?.pathname || '/' ;
   const [error, setError] = useState('')
   const [succes, setSuccess] = useState('')
   const provider = new GoogleAuthProvider();
@@ -41,6 +43,7 @@ const Login = () => {
     signIn(email, password)
       .then(result => {
         const loggedUser = result.user;
+        navigate(from,{replace:true});
 
         console.log(loggedUser);
         navigate('/')
