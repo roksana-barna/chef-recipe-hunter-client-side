@@ -7,7 +7,7 @@ const ChefDetails = () => {
     console.log(dynamic.chefId)
     const [details,setDetails]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/chefdetails/${dynamic.chefId}`)
+        fetch(`https://b7a10-chef-recipe-hunter-server-side-roksana-barn-roksana-barna.vercel.app/chefdetails/${dynamic.chefId}`)
         .then(res => res.json())
         .then(data=>setDetails(data))
         .catch(error =>console.error(error))
